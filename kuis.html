@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Interaktif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc, #20bf6b, #f7b733);
+            background-size: 400% 400%;
+            animation: gradientBG 8s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        button {
+            padding: 10px 15px;
+            margin: 10px;
+            background: #ff7eb3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff4d94;
+            transform: scale(1.1);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Kuis Interaktif</h2>
+        <div id="quiz-container">
+            <p id="question"></p>
+            <div id="options"></div>
+        </div>
+        <div id="result" class="hidden">
+            <h3>Hasil Kuis</h3>
+            <p id="score"></p>
+            <a href="materi.html">
+                <button>Kembali ke Materi</button>
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        const questions = [
+            { q: "Apa kepanjangan dari LAN?", options: ["Local Area Network", "Long Area Network", "Light Area Network"], answer: 0 },
+            { q: "Manakah yang termasuk protokol jaringan?", options: ["HTTP", "JPEG", "MP3"], answer: 0 },
+            { q: "Apa fungsi utama dari database?", options: ["Menyimpan data", "Menghapus file", "Menginstal aplikasi"], answer: 0 },
+            { q: "Apa fungsi utama dari DNS?", options: ["Menerjemahkan domain ke IP", "Menghubungkan komputer", "Menghapus cache"], answer: 0 },
+            { q: "Apa singkatan dari IP dalam IP Address?", options: ["Internet Protocol", "Internal Processor", "Integrated Program"], answer: 0 },
+            { q: "Apa contoh bahasa pemrograman?", options: ["Python", "HTML", "CSS"], answer: 0 },
+            { q: "Apa yang digunakan untuk menyusun kode program?", options: ["Editor teks", "Pemutar video", "Spreadsheet"], answer: 0 },
+            { q: "Apa itu database relasional?", options: ["Basis data berbentuk tabel", "Data berbentuk gambar", "Data hanya bisa dibaca"], answer: 0 },
+            { q: "Manakah yang termasuk topologi jaringan?", options: ["Bus", "Circle", "Tree"], answer: 0 },
+            { q: "Apa yang digunakan untuk menghubungkan jaringan nirkabel?", options: ["Wi-Fi", "Flashdisk", "Harddisk"], answer: 0 },
+            { q: "Manakah yang termasuk dalam DML dalam SQL?", options: ["SELECT", "CREATE", "GRANT"], answer: 0 },
+            { q: "Apa yang dimaksud dengan pemrograman?", options: ["Proses membuat kode program", "Mengetik dokumen", "Mengedit gambar"], answer: 0 },
+            { q: "Apa kepanjangan dari WAN?", options: ["Wide Area Network", "Web Access Node", "Wireless Adapter Network"], answer: 0 },
+            { q: "Apa manfaat jaringan komputer?", options: ["Berbagi sumber daya", "Memperlambat akses data", "Menyimpan dokumen offline"], answer: 0 },
+            { q: "Apa kegunaan dari switch dalam jaringan?", options: ["Menghubungkan perangkat", "Menyimpan data", "Menjalankan aplikasi"], answer: 0 }
+        ];
+
+        let currentQuestion = 0;
+        let correctAnswers = 0;
+        
+        function loadQuestion() {
+            if (currentQuestion < questions.length) {
+                document.getElementById("question").textContent = questions[currentQuestion].q;
+                let optionsHtml = "";
+                questions[currentQuestion].options.forEach((opt, index) => {
+                    optionsHtml += `<button onclick="checkAnswer(${index})">${opt}</button><br>`;
+                });
+                document.getElementById("options").innerHTML = optionsHtml;
+            } else {
+                showResult();
+            }
+        }
+
+        function checkAnswer(selectedIndex) {
+            if (selectedIndex === questions[currentQuestion].answer) {
+                correctAnswers++;
+            }
+            currentQuestion++;
+            setTimeout(loadQuestion, 500);
+        }
+
+        function showResult() {
+            document.getElementById("quiz-container").classList.add("hidden");
+            document.getElementById("result").classList.remove("hidden");
+            let wrongAnswers = questions.length - correctAnswers;
+            document.getElementById("score").textContent = `Benar: ${correctAnswers} | Salah: ${wrongAnswers}`;
+        }
+        
+        window.onload = loadQuestion;
+    </script>
+</body>
+</html>

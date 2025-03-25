@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basis Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff9f43, #feca57, #1dd1a1, #54a0ff);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
+            text-align: center;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            max-width: 90%;
+            width: 800px;
+            margin: auto;
+            text-align: left;
+            backdrop-filter: blur(10px);
+        }
+        h2 { color: #ffcc00; }
+        h3 { color: #ff5733; }
+        h4 { color: #33ff57; }
+        p, li { color: #ffffff; font-size: 1rem; }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff5733;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .back-button:hover {
+            background: #c70039;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+                width: 95%;
+            }
+            p, li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Pengertian Basis Data</h2>
+        <p>Basis data (database) adalah kumpulan data yang terorganisir dan disimpan secara sistematis agar dapat diakses, dikelola, dan diperbarui dengan efisien. Basis data memungkinkan penyimpanan informasi dalam jumlah besar serta mempermudah proses pencarian, analisis, dan manipulasi data secara cepat dan akurat.</p>
+        <p>Dalam dunia teknologi, basis data digunakan untuk menyimpan berbagai jenis informasi, mulai dari data pelanggan dalam sistem e-commerce, catatan transaksi perbankan, hingga manajemen inventaris di perusahaan. Dengan adanya basis data, pengguna dapat mengelola data secara lebih efisien dan memastikan keamanan serta konsistensinya.</p>
+        
+        <h3>Fungsi dan Manfaat Basis Data</h3>
+        <ul>
+            <li>Menyimpan data secara terstruktur.</li>
+            <li>Mempermudah pengolahan dan pencarian data.</li>
+            <li>Menjaga keamanan dan konsistensi data.</li>
+            <li>Memungkinkan akses oleh banyak pengguna.</li>
+        </ul>
+
+        <h3>Komponen Basis Data</h3>
+        <ul>
+            <li><strong>Data:</strong> Informasi yang disimpan dalam basis data.</li>
+            <li><strong>Perangkat Keras:</strong> Server atau komputer penyimpan data.</li>
+            <li><strong>Perangkat Lunak:</strong> DBMS (MySQL, PostgreSQL, Oracle).</li>
+            <li><strong>Pengguna:</strong> Administrator, programmer, dan pengguna akhir.</li>
+            <li><strong>Prosedur:</strong> Aturan dalam pengelolaan basis data.</li>
+        </ul>
+
+        <h3>Jenis-Jenis Basis Data</h3>
+        <ul>
+            <li><strong>Relasional:</strong> Menggunakan tabel dengan relasi antar data (contoh: MySQL).</li>
+            <li><strong>Hierarkis:</strong> Data tersusun seperti pohon (contoh: IMS).</li>
+            <li><strong>Jaringan:</strong> Data memiliki banyak hubungan (contoh: IDS).</li>
+            <li><strong>Berorientasi Objek:</strong> Data berbasis objek (contoh: ObjectDB).</li>
+            <li><strong>NoSQL:</strong> Untuk data tidak terstruktur (contoh: MongoDB).</li>
+        </ul>
+
+        <h3>Struktur Basis Data Relasional</h3>
+        <ul>
+            <li><strong>Kolom:</strong> Elemen individu dalam tabel.</li>
+            <li><strong>Baris:</strong> Satu set data dalam tabel.</li>
+            <li><strong>Kunci Primer:</strong> Identitas unik tiap baris.</li>
+            <li><strong>Kunci Asing:</strong> Menghubungkan tabel satu dengan lainnya.</li>
+        </ul>
+
+        <h3>Bahasa dalam Basis Data</h3>
+        <ul>
+            <li><strong>DDL:</strong> Mendefinisikan struktur (CREATE TABLE, ALTER TABLE).</li>
+            <li><strong>DML:</strong> Mengolah data (SELECT, INSERT, UPDATE, DELETE).</li>
+            <li><strong>DCL:</strong> Mengatur hak akses (GRANT, REVOKE).</li>
+            <li><strong>TCL:</strong> Mengelola transaksi (COMMIT, ROLLBACK).</li>
+        </ul>
+
+        <h3>Normalisasi Basis Data</h3>
+        <p>Proses untuk mengurangi duplikasi dan meningkatkan efisiensi, meliputi:</p>
+        <ul>
+            <li><strong>1NF:</strong> Menghapus duplikasi kolom.</li>
+            <li><strong>2NF:</strong> Memastikan semua atribut tergantung pada kunci utama.</li>
+            <li><strong>3NF:</strong> Menghilangkan ketergantungan antar atribut bukan kunci.</li>
+        </ul>
+
+        <a href="materi.html" class="back-button">Kembali ke Daftar Materi</a>
+    </div>
+</body>
+</html>
